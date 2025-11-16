@@ -16,6 +16,18 @@ const Colors = {
   Brown: "#8B4513",
   LightCyan: "#1b5a7a38",
   Cyan: "#1B5A7A",
+
+  // Dashboard vibrant colors
+  Emerald: "#10B981",
+  Coral: "#F97316",
+  Violet: "#8B5CF6",
+  Rose: "#F43F5E",
+  Indigo: "#6366F1",
+  Teal: "#14B8A6",
+  Amber: "#F59E0B",
+  Sky: "#0EA5E9",
+  Lime: "#84CC16",
+  Pink: "#EC4899",
 };
 
 export default Colors;
