@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import Navigation from "./Navigation";
 
 interface DashboardLayoutProps {
-  userType: 'student' | 'admin' | 'faculty';
+  userType: "student" | "admin" | "faculty";
 }
 
 const DashboardLayout: React.FC<DashboardLayoutProps> = ({ userType }) => {
@@ -16,6 +16,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ userType }) => {
         sx={{
           flexGrow: 1,
           ml: { xs: 0, md: "250px" },
+          mt: { xs: "64px", md: 0 },
           minHeight: "100vh",
           backgroundColor: "#f5f5f5",
         }}

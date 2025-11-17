@@ -6,6 +6,7 @@ import StudentDashboard from "../Pages/Student/Dashboard";
 import StudentAssignment from "../Pages/Student/Assignment";
 import AdminDashboard from "../Pages/Admin/Dashboard";
 import FacultyDashboard from "../Pages/Faculty/Dashboard";
+import Courses from "../Pages/Student/Courses";
 
 const AppRoutes = () => {
   return (
@@ -17,7 +18,7 @@ const AppRoutes = () => {
         <Route index element={<StudentDashboard />} />
         <Route path="dashboard" element={<StudentDashboard />} />
         <Route path="assignment" element={<StudentAssignment />} />
-        <Route path="courses" element={<div>Student Courses</div>} />
+        <Route path="courses" element={<Courses />} />
         <Route path="announcement" element={<div>Student Announcements</div>} />
         <Route path="discussion" element={<div>Student Discussion</div>} />
         <Route path="profile" element={<div>Student Profile</div>} />

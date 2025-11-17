@@ -18,10 +18,13 @@ import {
   ListItemText,
 } from "@mui/material";
 import { Menu, Login, Close } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
+import Pages from "../../Const/Pages";
 
 const TopNav = () => {
   const [loginOpen, setLoginOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const navItems = [
     { label: "Home", id: "home" },
@@ -39,6 +42,12 @@ const TopNav = () => {
         element.scrollIntoView({ behavior: "smooth" });
       }
     }
+  };
+
+  const loginAction = () => {
+    // Placeholder for login action
+    console.log("Login action triggered");
+    navigate(Pages.STUDENT_DASHBOARD);
   };
 
   return (
@@ -222,6 +231,7 @@ const TopNav = () => {
               background: "linear-gradient(45deg, #4CAF50, #2196F3)",
               fontFamily: "Roboto Condensed",
             }}
+            onClick={loginAction}
           >
             Login
           </Button>

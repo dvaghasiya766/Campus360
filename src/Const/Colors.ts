@@ -28,6 +28,19 @@ const Colors = {
   Sky: "#0EA5E9",
   Lime: "#84CC16",
   Pink: "#EC4899",
+
+  // Light colors for navigation
+  LightGray: "#F8F9FA",
+  Gray: "#6C757D",
+  SoftBlue: "#E3F2FD",
+  PaleGreen: "#F1F8E9",
+  LightBeige: "#FFF8E1",
+  SoftPurple: "#F3E5F5",
+  WhiteSmoke: "#FAFAFA",
+
+  // Logo colors
+  LogoGreen: "#4CAF50",
+  LogoBlue: "#2196F3",
 };
 
 export default Colors;

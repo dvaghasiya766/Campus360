@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   List,
@@ -10,6 +10,9 @@ import {
   Drawer,
   useMediaQuery,
   useTheme,
+  IconButton,
+  AppBar,
+  Toolbar,
 } from "@mui/material";
 import {
   Dashboard,
@@ -20,17 +23,30 @@ import {
   People,
   Assessment,
   Assignment,
+  Menu as MenuIcon,
+  Close as CloseIcon,
 } from "@mui/icons-material";
 import { useLocation, NavLink } from "react-router-dom";
+import Colors from "../Const/Colors";
 
 interface NavigationProps {
   userType: "student" | "admin" | "faculty";
+  onDrawerToggle?: () => void;
 }
 
-const Navigation: React.FC<NavigationProps> = ({ userType = "student" }) => {
+const Navigation: React.FC<NavigationProps> = ({
+  userType = "student",
+  onDrawerToggle,
+}) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+    onDrawerToggle?.();
+  };
 
   const navigationConfig = {
     student: [
@@ -68,14 +84,23 @@ const Navigation: React.FC<NavigationProps> = ({ userType = "student" }) => {
   const NavigationContent = () => (
     <Box
       sx={{
-        width: isMobile ? "100%" : 250,
+        width: 250,
         height: "100vh",
-        background: "linear-gradient(180deg, #333333 0%, #1a1a1a 100%)",
-        color: "white",
+        background: `linear-gradient(180deg, ${Colors.WhiteSmoke} 0%, ${Colors.LightGray} 100%)`,
+        color: "#333",
+        borderRight: `1px solid ${Colors.LightBeige}`,
       }}
     >
       {/* Logo */}
-      <Box sx={{ p: 3, borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
+      <Box
+        sx={{
+          p: 3,
+          borderBottom: `1px solid ${Colors.LightBeige}`,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Box
             sx={{
@@ -103,6 +128,11 @@ const Navigation: React.FC<NavigationProps> = ({ userType = "student" }) => {
             Campus360
           </Typography>
         </Box>
+        {isMobile && (
+          <IconButton onClick={handleDrawerToggle} sx={{ color: "#333" }}>
+            <CloseIcon />
+          </IconButton>
+        )}
       </Box>
 
       {/* Navigation Items */}
@@ -116,6 +146,7 @@ const Navigation: React.FC<NavigationProps> = ({ userType = "student" }) => {
                 color: "inherit",
                 width: "100%",
               }}
+              onClick={isMobile ? handleDrawerToggle : undefined}
             >
               <ListItemButton
                 // onClick={() => navigate(`/${userType}/${item.id}`)}
@@ -124,27 +155,25 @@ const Navigation: React.FC<NavigationProps> = ({ userType = "student" }) => {
                   transition: "all 0.3s ease",
                   backgroundColor:
                     selectedItem === item.label
-                      ? "rgba(76, 175, 80, 0.2)"
+                      ? Colors.LogoGreen + "20"
                       : "transparent",
                   border:
                     selectedItem === item.label
-                      ? "1px solid #4CAF50"
+                      ? `1px solid ${Colors.LogoGreen}`
                       : "1px solid transparent",
                   "&:hover": {
                     backgroundColor:
                       selectedItem === item.label
-                        ? "rgba(76, 175, 80, 0.3)"
-                        : "rgba(255,255,255,0.1)",
+                        ? Colors.PaleGreen
+                        : Colors.LogoBlue + "20",
+                    // : Colors.LightBeige,
                     transform: "translateX(5px)",
                   },
                 }}
               >
                 <ListItemIcon
                   sx={{
-                    color:
-                      selectedItem === item.label
-                        ? "#4CAF50"
-                        : "rgba(255,255,255,0.7)",
+                    color: selectedItem === item.label ? Colors.Green : "#666",
                     minWidth: 40,
                   }}
                 >
@@ -157,9 +186,7 @@ const Navigation: React.FC<NavigationProps> = ({ userType = "student" }) => {
                       fontFamily: "Roboto Condensed",
                       fontWeight: selectedItem === item.label ? 600 : 400,
                       color:
-                        selectedItem === item.label
-                          ? "#4CAF50"
-                          : "rgba(255,255,255,0.9)",
+                        selectedItem === item.label ? Colors.Green : "#555",
                     },
                   }}
                 />
@@ -173,18 +200,46 @@ const Navigation: React.FC<NavigationProps> = ({ userType = "student" }) => {
 
   if (isMobile) {
     return (
-      <Drawer
-        variant="temporary"
-        open={true}
-        sx={{
-          "& .MuiDrawer-paper": {
-            width: 250,
-            boxSizing: "border-box",
-          },
-        }}
-      >
-        <NavigationContent />
-      </Drawer>
+      <>
+        <AppBar
+          position="fixed"
+          sx={{
+            background: `linear-gradient(90deg, ${Colors.WhiteSmoke} 0%, ${Colors.LightGray} 100%)`,
+            color: "#333",
+            boxShadow: `0 2px 4px ${Colors.LightBeige}`,
+          }}
+        >
+          <Toolbar>
+            <IconButton
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, color: "#333" }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography
+              variant="h6"
+              sx={{ fontFamily: "Oswald", fontWeight: 700 }}
+            >
+              Campus360
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <Drawer
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{ keepMounted: true }}
+          sx={{
+            "& .MuiDrawer-paper": {
+              width: 250,
+              boxSizing: "border-box",
+            },
+          }}
+        >
+          <NavigationContent />
+        </Drawer>
+      </>
     );
   }
 
@@ -195,6 +250,7 @@ const Navigation: React.FC<NavigationProps> = ({ userType = "student" }) => {
         left: 0,
         top: 0,
         zIndex: 1000,
+        borderRight: `3px solid ${Colors.Gray}`,
       }}
     >
       <NavigationContent />
@@ -202,4 +258,5 @@ const Navigation: React.FC<NavigationProps> = ({ userType = "student" }) => {
   );
 };
 
+export { Navigation };
 export default Navigation;
