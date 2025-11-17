@@ -204,9 +204,9 @@ const Navigation: React.FC<NavigationProps> = ({
         <AppBar
           position="fixed"
           sx={{
-            background: `linear-gradient(90deg, ${Colors.WhiteSmoke} 0%, ${Colors.LightGray} 100%)`,
+            background: `linear-gradient(90deg, ${Colors.WhiteSmoke} 0%, ${Colors.primary} 100%)`,
             color: "#333",
-            boxShadow: `0 2px 4px ${Colors.LightBeige}`,
+            boxShadow: `0 2px 4px ${Colors.EnglishGray}`,
           }}
         >
           <Toolbar>

@@ -1,18 +1,25 @@
 import React from "react";
-import { Box, Typography, Container } from "@mui/material";
+import { Box } from "@mui/material";
+import MainTitle from "../../Components/Common/Headings/MainTitle";
+import Colors from "../../Const/Colors";
 
 const Assignment = () => {
   return (
-    <Container maxWidth="lg" sx={{ py: 4 }}>
-      <Typography variant="h4" sx={{ fontFamily: "Oswald", mb: 3 }}>
-        Assignments
-      </Typography>
-      <Box sx={{ p: 3, backgroundColor: "white", borderRadius: 2 }}>
-        <Typography variant="body1" sx={{ fontFamily: "Roboto Condensed" }}>
-          Your assignments will appear here.
-        </Typography>
-      </Box>
-    </Container>
+    <Box width="100%">
+      <MainTitle
+        title="Assignments"
+        subtitle="Manage your assignments"
+        color={Colors.HeadingDarkGray}
+      />
+      <Box
+        display="flex"
+        flexDirection="row"
+        flexWrap="wrap"
+        alignItems="center"
+        justifyContent="center"
+        gap={2}
+      ></Box>
+    </Box>
   );
 };
 

@@ -16,7 +16,8 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ userType }) => {
         sx={{
           flexGrow: 1,
           ml: { xs: 0, md: "250px" },
-          mt: { xs: "64px", md: 0 },
+          mt: { xs: 0, md: 0 },
+          pt: { xs: 7, md: 2 },
           minHeight: "100vh",
           backgroundColor: "#f5f5f5",
         }}

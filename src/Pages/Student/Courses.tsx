@@ -10,7 +10,7 @@ const Courses = () => {
       <MainTitle
         title="Courses"
         subtitle="Manage your enrolled courses"
-        color={Colors.Gray}
+        color={Colors.HeadingDarkGray}
       />
       <Box
         display="flex"
