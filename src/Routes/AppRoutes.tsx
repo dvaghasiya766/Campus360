@@ -7,6 +7,7 @@ import StudentAssignment from "../Pages/Student/Assignment";
 import AdminDashboard from "../Pages/Admin/Dashboard";
 import FacultyDashboard from "../Pages/Faculty/Dashboard";
 import Courses from "../Pages/Student/Courses";
+import ViewCourseDetails from "../Pages/Student/ViewCourseDetails";
 import Announcement from "../Pages/Common/Announcement";
 import Discussion from "../Pages/Student/Discussion";
 import Profile from "../Pages/Common/Profile";
@@ -22,6 +23,7 @@ const AppRoutes = () => {
         <Route path="dashboard" element={<StudentDashboard />} />
         <Route path="assignment" element={<StudentAssignment />} />
         <Route path="courses" element={<Courses />} />
+        <Route path="course-details" element={<ViewCourseDetails />} />
         <Route path="announcement" element={<Announcement />} />
         <Route path="discussion" element={<Discussion />} />
         <Route path="profile" element={<Profile />} />
