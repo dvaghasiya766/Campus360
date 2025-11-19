@@ -7,6 +7,9 @@ import StudentAssignment from "../Pages/Student/Assignment";
 import AdminDashboard from "../Pages/Admin/Dashboard";
 import FacultyDashboard from "../Pages/Faculty/Dashboard";
 import Courses from "../Pages/Student/Courses";
+import Announcement from "../Pages/Common/Announcement";
+import Discussion from "../Pages/Student/Discussion";
+import Profile from "../Pages/Common/Profile";
 
 const AppRoutes = () => {
   return (
@@ -19,9 +22,9 @@ const AppRoutes = () => {
         <Route path="dashboard" element={<StudentDashboard />} />
         <Route path="assignment" element={<StudentAssignment />} />
         <Route path="courses" element={<Courses />} />
-        <Route path="announcement" element={<div>Student Announcements</div>} />
-        <Route path="discussion" element={<div>Student Discussion</div>} />
-        <Route path="profile" element={<div>Student Profile</div>} />
+        <Route path="announcement" element={<Announcement />} />
+        <Route path="discussion" element={<Discussion />} />
+        <Route path="profile" element={<Profile />} />
       </Route>
 
       {/* Admin Routes */}
@@ -32,7 +35,7 @@ const AppRoutes = () => {
         <Route path="users" element={<div>Users Management</div>} />
         <Route path="notice" element={<div>Notice Management</div>} />
         <Route path="reports" element={<div>Reports</div>} />
-        <Route path="profile" element={<div>Admin Profile</div>} />
+        <Route path="profile" element={<Profile />} />
       </Route>
 
       {/* Faculty Routes */}
@@ -42,8 +45,8 @@ const AppRoutes = () => {
         <Route path="courses" element={<div>Faculty Courses</div>} />
         <Route path="assignment" element={<div>Faculty Assignment</div>} />
         <Route path="discussion" element={<div>Faculty Discussion</div>} />
-        <Route path="announcement" element={<div>Faculty Announcement</div>} />
-        <Route path="profile" element={<div>Faculty Profile</div>} />
+        <Route path="announcement" element={<Announcement />} />
+        <Route path="profile" element={<Profile />} />
       </Route>
     </Routes>
   );

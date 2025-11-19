@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Card, CardContent, Avatar, Typography, Button, Box } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  Avatar,
+  Typography,
+  Button,
+  Box,
+} from "@mui/material";
 import Colors from "../../Const/Colors";
 import { Visibility, School } from "@mui/icons-material";
 
@@ -28,6 +35,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       sx={{
+        flexGrow: 1,
         display: "flex",
         alignItems: "center",
         gap: 2,
@@ -35,7 +43,8 @@ const CourseCard: React.FC<CourseCardProps> = ({
         overflow: "visible",
         marginRight: 2,
         borderRadius: 3,
-        backgroundColor: "#fff",
+        backgroundColor: Colors.LightGray,
+        border: `2px solid ${color}20`,
         borderLeft: `4px solid ${color}`,
         position: "relative",
         cursor: "pointer",
@@ -45,6 +54,8 @@ const CourseCard: React.FC<CourseCardProps> = ({
           boxShadow: `0 8px 25px ${color}25`,
           transform: "translateY(-4px) scale(1.02)",
           backgroundColor: `${color}02`,
+          border: `2px solid ${color}`,
+          borderLeft: `6px solid ${color}`,
         },
         "&::before": {
           content: '""',
@@ -73,7 +84,9 @@ const CourseCard: React.FC<CourseCardProps> = ({
             textTransform: "uppercase",
             border: `2px solid ${color}30`,
             transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-            transform: isHovered ? "rotate(5deg) scale(1.1)" : "rotate(0deg) scale(1)",
+            transform: isHovered
+              ? "rotate(5deg) scale(1.1)"
+              : "rotate(0deg) scale(1)",
             boxShadow: isHovered ? `0 4px 15px ${color}40` : "none",
           }}
         >
@@ -87,18 +100,28 @@ const CourseCard: React.FC<CourseCardProps> = ({
             fontSize: 16,
             color: color,
             opacity: isHovered ? 1 : 0,
-            transform: isHovered ? "scale(1) rotate(15deg)" : "scale(0) rotate(0deg)",
+            transform: isHovered
+              ? "scale(1) rotate(15deg)"
+              : "scale(0) rotate(0deg)",
             transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
           }}
         />
       </Box>
 
       {/* Animated Info Section */}
-      <CardContent sx={{ flexGrow: 1, padding: "0 !important", minWidth: 0, position: "relative", zIndex: 1 }}>
-        <Typography 
-          variant="h6" 
-          sx={{ 
-            fontWeight: 600, 
+      <CardContent
+        sx={{
+          flexGrow: 1,
+          padding: "0 !important",
+          minWidth: 0,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        <Typography
+          variant="h6"
+          sx={{
+            fontWeight: 600,
             color: "#333",
             overflow: "hidden",
             textOverflow: "ellipsis",
@@ -109,13 +132,13 @@ const CourseCard: React.FC<CourseCardProps> = ({
         >
           {courseName}
         </Typography>
-        
-        <Typography 
-          variant="caption" 
-          sx={{ 
-            color: color, 
-            fontWeight: 600, 
-            mb: 1, 
+
+        <Typography
+          variant="caption"
+          sx={{
+            color: color,
+            fontWeight: 600,
+            mb: 1,
             display: "block",
             overflow: "hidden",
             textOverflow: "ellipsis",
@@ -127,29 +150,33 @@ const CourseCard: React.FC<CourseCardProps> = ({
           {courseCode} • {credits} Credits
         </Typography>
 
-        <Typography 
-          variant="body2" 
-          color="text.secondary" 
-          sx={{ 
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          sx={{
             mb: 0.5,
             overflow: "hidden",
             textOverflow: "ellipsis",
             whiteSpace: "nowrap",
             transition: "all 0.3s ease 0.2s",
+            maxWidth: 150,
+            overflowX: "clip",
             transform: isHovered ? "translateX(5px)" : "translateX(0px)",
           }}
         >
           <strong>Faculty:</strong> {facultyName}
         </Typography>
 
-        <Typography 
-          variant="body2" 
+        <Typography
+          variant="body2"
           color="text.secondary"
           sx={{
             overflow: "hidden",
             textOverflow: "ellipsis",
             whiteSpace: "nowrap",
             transition: "all 0.3s ease 0.3s",
+            maxWidth: 153,
+            overflowX: "clip",
             transform: isHovered ? "translateX(5px)" : "translateX(0px)",
           }}
         >
@@ -172,7 +199,9 @@ const CourseCard: React.FC<CourseCardProps> = ({
             borderRadius: 2,
             boxShadow: `0 2px 8px ${color}40`,
             transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-            transform: isHovered ? "scale(1.1) rotate(5deg)" : "scale(1) rotate(0deg)",
+            transform: isHovered
+              ? "scale(1.1) rotate(5deg)"
+              : "scale(1) rotate(0deg)",
             "&:hover": {
               backgroundColor: color,
               transform: "scale(1.15) rotate(10deg)",
@@ -183,13 +212,13 @@ const CourseCard: React.FC<CourseCardProps> = ({
             },
           }}
         >
-          <Visibility 
-            sx={{ 
-              fontSize: 18, 
+          <Visibility
+            sx={{
+              fontSize: 18,
               color: "white",
               transition: "transform 0.2s ease",
               transform: isHovered ? "scale(1.2)" : "scale(1)",
-            }} 
+            }}
           />
         </Button>
       </Box>

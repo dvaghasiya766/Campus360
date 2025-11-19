@@ -14,6 +14,7 @@ import {
   AppBar,
   Toolbar,
 } from "@mui/material";
+import LogoutButton from "../Components/Common/LogoutButton";
 import {
   Dashboard,
   School,
@@ -136,65 +137,87 @@ const Navigation: React.FC<NavigationProps> = ({
       </Box>
 
       {/* Navigation Items */}
-      <List sx={{ p: 2 }}>
-        {navItems.map((item) => (
-          <ListItem key={item.id} disablePadding sx={{ mb: 1 }}>
-            <NavLink
-              to={`/${userType}/${item.id}`}
-              style={{
-                textDecoration: "none",
-                color: "inherit",
-                width: "100%",
-              }}
-              onClick={isMobile ? handleDrawerToggle : undefined}
-            >
-              <ListItemButton
-                // onClick={() => navigate(`/${userType}/${item.id}`)}
-                sx={{
-                  borderRadius: 2,
-                  transition: "all 0.3s ease",
-                  backgroundColor:
-                    selectedItem === item.label
-                      ? Colors.LogoGreen + "20"
-                      : "transparent",
-                  border:
-                    selectedItem === item.label
-                      ? `1px solid ${Colors.LogoGreen}`
-                      : "1px solid transparent",
-                  "&:hover": {
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          height: "calc(100vh - 100px)",
+        }}
+      >
+        <List sx={{ p: 2, flex: 1 }}>
+          {navItems.map((item) => (
+            <ListItem key={item.id} disablePadding sx={{ mb: 1 }}>
+              <NavLink
+                to={`/${userType}/${item.id}`}
+                style={{
+                  textDecoration: "none",
+                  color: "inherit",
+                  width: "100%",
+                }}
+                onClick={isMobile ? handleDrawerToggle : undefined}
+              >
+                <ListItemButton
+                  sx={{
+                    borderRadius: 2,
+                    transition: "all 0.3s ease",
                     backgroundColor:
                       selectedItem === item.label
-                        ? Colors.PaleGreen
-                        : Colors.LogoBlue + "20",
-                    // : Colors.LightBeige,
-                    transform: "translateX(5px)",
-                  },
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    color: selectedItem === item.label ? Colors.Green : "#666",
-                    minWidth: 40,
-                  }}
-                >
-                  {item.icon}
-                </ListItemIcon>
-                <ListItemText
-                  primary={item.label}
-                  sx={{
-                    "& .MuiTypography-root": {
-                      fontFamily: "Roboto Condensed",
-                      fontWeight: selectedItem === item.label ? 600 : 400,
-                      color:
-                        selectedItem === item.label ? Colors.Green : "#555",
+                        ? Colors.LogoGreen + "20"
+                        : "transparent",
+                    border:
+                      selectedItem === item.label
+                        ? `1px solid ${Colors.LogoGreen}`
+                        : "1px solid transparent",
+                    "&:hover": {
+                      backgroundColor:
+                        selectedItem === item.label
+                          ? Colors.PaleGreen
+                          : Colors.LogoBlue + "20",
+                      transform: "translateX(5px)",
                     },
                   }}
-                />
-              </ListItemButton>
-            </NavLink>
-          </ListItem>
-        ))}
-      </List>
+                >
+                  <ListItemIcon
+                    sx={{
+                      color:
+                        selectedItem === item.label ? Colors.Green : "#666",
+                      minWidth: 40,
+                    }}
+                  >
+                    {item.icon}
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={item.label}
+                    sx={{
+                      "& .MuiTypography-root": {
+                        fontFamily: "Roboto Condensed",
+                        fontWeight: selectedItem === item.label ? 600 : 400,
+                        color:
+                          selectedItem === item.label ? Colors.Green : "#555",
+                      },
+                    }}
+                  />
+                </ListItemButton>
+              </NavLink>
+            </ListItem>
+          ))}
+        </List>
+
+        {/* Logout Button at Bottom */}
+        <Box
+          sx={{
+            p: 2,
+            borderTop: `3px solid ${Colors.Gray}`,
+            background: `linear-gradient(135deg, ${Colors.WhiteSmoke} 0%, ${Colors.LightGray} 100%)`,
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <Box sx={{ width: "100%" }}>
+            <LogoutButton onLogout={() => console.log("Logging out...")} />
+          </Box>
+        </Box>
+      </Box>
     </Box>
   );
 

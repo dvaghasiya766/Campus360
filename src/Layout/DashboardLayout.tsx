@@ -19,7 +19,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ userType }) => {
           mt: { xs: 0, md: 0 },
           pt: { xs: 7, md: 2 },
           minHeight: "100vh",
-          backgroundColor: "#f5f5f5",
+          // backgroundColor: "#f5f5f5",
         }}
       >
         <Outlet />

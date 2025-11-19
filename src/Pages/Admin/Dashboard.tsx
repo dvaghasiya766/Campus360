@@ -9,7 +9,6 @@ import {
   Avatar,
   Chip,
   Paper,
-  Divider,
 } from "@mui/material";
 import {
   People,
@@ -21,7 +20,6 @@ import {
   Security,
   Speed,
 } from "@mui/icons-material";
-import StatsCard from "../../Components/Dashboard/StatsCard";
 import Colors from "../../Const/Colors";
 
 const AdminDashboard = () => {

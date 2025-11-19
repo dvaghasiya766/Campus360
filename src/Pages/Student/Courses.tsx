@@ -9,7 +9,7 @@ const Courses = () => {
     <Box width="100%">
       <MainTitle
         title="Courses"
-        subtitle="Manage your enrolled courses"
+        subtitle="Manage your enrolled Courses..."
         color={Colors.HeadingDarkGray}
       />
       <Box
@@ -19,8 +19,13 @@ const Courses = () => {
         alignItems="center"
         justifyContent="center"
         gap={2}
+        paddingLeft={3}
       >
-        <CourseCard color={Colors.Amber} />
+        <CourseCard
+          color={Colors.Amber}
+          facultyName="Dev Rajeshbhai Vaghasiya"
+          instructorName="Dev Rajeshbhai Vaghasiya"
+        />
         <CourseCard color={Colors.Brown} />
         <CourseCard color={Colors.Cyan} />
         <CourseCard color={Colors.Green} />

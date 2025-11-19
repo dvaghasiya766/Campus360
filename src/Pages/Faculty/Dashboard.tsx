@@ -21,7 +21,6 @@ import {
   Class,
   Grade,
 } from "@mui/icons-material";
-import StatsCard from "../../Components/Dashboard/StatsCard";
 import Colors from "../../Const/Colors";
 
 const FacultyDashboard = () => {

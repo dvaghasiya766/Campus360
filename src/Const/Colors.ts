@@ -8,6 +8,8 @@ const Colors = {
   Pinch: "#FF8181",
   LightGreen: "#79c40f39",
   Green: "#78C40F",
+  LightChillyGreen: "#2e7d3239",
+  ChillyGreen: "#2e7d32",
   LightPurple: "#c736aa45",
   Purple: "#C736AA",
   LightBlue: "#4286f44a",
@@ -32,6 +34,7 @@ const Colors = {
   // Light colors for navigation
   LightGray: "#F8F9FA",
   Gray: "#6C757D",
+  BackgroundGray: "#ddddddff",
   EnglishGray: "#B0B0B0",
   SoftBlue: "#E3F2FD",
   PaleGreen: "#F1F8E9",

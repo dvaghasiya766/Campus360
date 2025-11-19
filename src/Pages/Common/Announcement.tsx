@@ -1,14 +1,14 @@
-import React from "react";
 import { Box } from "@mui/material";
+import React from "react";
 import MainTitle from "../../Components/Common/Headings/MainTitle";
 import Colors from "../../Const/Colors";
 
-const Assignment = () => {
+const Announcement = () => {
   return (
     <Box width="100%">
       <MainTitle
-        title="Assignments"
-        subtitle="Manage your Assignments"
+        title="Announcement"
+        subtitle="Update with Campus's Announcements..."
         color={Colors.HeadingDarkGray}
       />
       <Box
@@ -23,4 +23,4 @@ const Assignment = () => {
   );
 };
 
-export default Assignment;
+export default Announcement;
